@@ -19,6 +19,12 @@ server.addService(inventoryProto.InventoryService.service, {
         callback(null, {
             products: products,
         });
+    }, //call back possui dois parametros: 1 - objeto de erro, 2 - resultado da função
+    SearchProductByID: (payload, callback) => {
+        callback(
+            null,
+            products.find((product) => product.id == payload.request.id)
+        );
     },
 });
 
